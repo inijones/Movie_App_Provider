@@ -30,12 +30,63 @@ class Endpoints {
   }
 
   static String popularMoviesUrl(int page) {
-    return '';
+    return '$TMDB_API_BASE_URL'
+        '/movie/popular?api_key='
+        '$TMDB_API_KEY'
+        '&language=en-US&page=$page';
+  }
+
+  static String upcomingMoviesUrl(int page) {
+    return '$TMDB_API_BASE_URL'
+        '/movie/upcoming?api_key='
+        '$TMDB_API_KEY'
+        '&language=en-US&page=$page';
+  }
+
+  static String movieDetailsUrl(int movieId) {
+    return '$TMDB_API_BASE_URL/movie/$movieId?api_key=$TMDB_API_KEY&append_to_response=credits,image';
+  }
+
+  static String genreUrl() {
+    return '$TMDB_API_BASE_URL'
+        '/genre/movie/list?api_key='
+        '$TMDB_API_KEY'
+        '&language=en-US';
+  }
+
+  static String getMoviesForGenre(int genreId, int page) {
+    return '$TMDB_API_BASE_URL/discover/movie?api_key=$TMDB_API_KEY'
+        '&language=en-US'
+        '&sort_by=popularity.desc'
+        '&include_adult=false'
+        '&page=$page'
+        '&with_genre=$genreId';
+  }
+
+  static String movieReviewUrl(int movieId, int page) {
+    return '$TMDB_API_BASE_URL/movie/$movieId/reviews?api_key=$TMDB_API_KEY'
+        '&language=en-US&page=$page';
+  }
+
+  static String movieSearchUrl(String query, int page) {
+    return '$TMDB_API_BASE_URL/search/movie?&api_key=$TMDB_API_KEY'
+        '&language=en-US'
+        '&query=$query'
+        '&page=$page'
+        '&include_adult=false';
+  }
+
+  static String personSearchUrl(String query, int page) {
+    return '$TMDB_API_BASE_URL//search/person?api_key=$TMDB_API_KEY'
+        '&language=en-US'
+        '&query=$query'
+        '&page=$page'
+        '&include_adult=false';
+  }
+
+  static getPerson(int personId) {
+    return "$TMDB_API_BASE_URL/person/$personId?api_key=$TMDB_API_BASE_URL&language=en-US";
   }
 }
 
-// class Endpoint {
-//   static String discoverMoviesUrl(int page) {
-//     return 'https://api.themoviedb.org/3/movie/top_rated?api_key=ef46ee59a31c5e276b9d3da0b83b3df4&language=en-US&page=1';
-//   }
-// }
+
