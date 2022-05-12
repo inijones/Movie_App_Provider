@@ -17,11 +17,14 @@ dependencies:
   shared_preferences: ^2.0.15
   carousel_slider: ^4.1.1
   provider: ^6.0.2
+  json_annotation: ^4.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.10
+  json_serializable: ^6.2.0
 
 # The following section is specific to Flutter.
 flutter:
