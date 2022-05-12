@@ -1,6 +1,6 @@
 # movie_app_provider
 
-A new Flutter project.
+A Flutter Project made with Provider and TMDB APIs(https://themoviedb.org)
 
 ## Getting Started
 
