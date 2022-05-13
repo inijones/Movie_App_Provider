@@ -3,8 +3,8 @@ import 'package:movie_app_provider/constant/api_constants.dart';
 class Endpoints {
   static String discoverMoviesUrl(int page) {
     return '$TMDB_API_BASE_URL'
-        '/discover/movie?api_key='
-        '$TMDB_API_KEY'
+        '/discover/movie'
+        '?api_key=$TMDB_API_KEY'
         '&language=en-US'
         '&sort_by=popularity'
         '.desc&include_adult=false'

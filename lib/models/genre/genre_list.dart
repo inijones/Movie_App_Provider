@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:json_annotation/json_annotation.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 
