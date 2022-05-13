@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +31,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  List<Genres> _genres = [];
+
+  @override
+  void initState() {
+    super.initState();
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold();
