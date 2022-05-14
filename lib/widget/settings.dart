@@ -21,6 +21,42 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final state = Provider.of<ThemeState>(context);
-    return Theme(data: state.themeData, child: Container());
+    return Theme(
+      data: state.themeData,
+      child: Container(
+        color: state.themeData.primaryColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: CircleAvatar(
+                          backgroundColor:
+                              state.themeData.colorScheme.secondary,
+                          radius: 40,
+                          child: Icon(
+                            Icons.person_outline,
+                            size: 40,
+                            color: state.themeData.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
