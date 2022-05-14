@@ -3,7 +3,7 @@ import 'package:movie_app_provider/models/functions.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
-import 'package:movie_app_provider/widget/settings.dart';
+import 'package:movie_app_provider/widget/settings_page.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -50,15 +50,19 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             onPressed: () async {
-              final Movie? result = await showSearch(context: state.themeData, delegate: Movie)
+              // final Movie? result = await showSearch(context: state.themeData, delegate: Movie)
             },
             icon: Icon(Icons.search),
+            color: state.themeData.colorScheme.secondary,
           ),
         ],
       ),
       // Drawer Wiget 
       drawer: Drawer(
         child: SettingsPage(),
+      ),
+      body: Container(
+
       ),
     );
   }
