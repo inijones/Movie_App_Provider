@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app_provider/api/endpoints.dart';
 import 'package:movie_app_provider/models/functions.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
+import 'package:movie_app_provider/widget/discover_movies.dart';
+import 'package:movie_app_provider/widget/scrolling_movies.dart';
 import 'package:movie_app_provider/widget/settings_page.dart';
 import 'package:provider/provider.dart';
 
@@ -61,7 +64,36 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: Drawer(
         child: SettingsPage(),
       ),
-      body: Container(),
+      body: Container(
+        color: state.themeData.primaryColor,
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            DiscoverMovies(
+              themeData: state.themeData,
+              genres: _genres,
+            ),
+            ScrollingMovies(
+              themeData: state.themeData,
+              title: 'Top Rated',
+              api: Endpoints.topRatedURL(1),
+              genre: _genres,
+            ),
+            ScrollingMovies(
+              themeData: state.themeData,
+              genre: _genres,
+              title: 'Now Playing',
+              api: Endpoints.nowPlayingMovieUrl(1),
+            ),
+            ScrollingMovies(
+              themeData: state.themeData,
+              genre: _genres,
+              title: 'Popular',
+              api: Endpoints.popularMoviesUrl(1),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
