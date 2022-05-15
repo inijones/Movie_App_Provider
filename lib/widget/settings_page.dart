@@ -26,7 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Container(
         color: state.themeData.primaryColor,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: Center(
@@ -49,7 +49,103 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ),
                       ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Login In/ Sign Up",
+                            style: state.themeData.textTheme.bodyText1,
+                          ))
                     ],
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Theme",
+                    style: state.themeData.textTheme.bodyText1,
+                  )
+                ],
+              ),
+              subtitle: SizedBox(
+                height: 100,
+                child: Center(
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, index) {
+                      return Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        width: 2, color: borders[index]),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                themes[index],
+                                style: state.themeData.textTheme.bodyText1,
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      switch (index) {
+                                        case 0:
+                                          state.saveOptionValue(
+                                              ThemeStateEnum.light);
+                                          break;
+                                        case 1:
+                                          state.saveOptionValue(
+                                              ThemeStateEnum.dark);
+                                          break;
+                                        case 2:
+                                          state.saveOptionValue(
+                                              ThemeStateEnum.amoled);
+                                          break;
+                                      }
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: state.themeData.primaryColor ==
+                                            colors[index]
+                                        ? Icon(
+                                            Icons.done,
+                                            color: state.themeData.colorScheme
+                                                .secondary,
+                                          )
+                                        : Container(),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                themes[index],
+                                style: state.themeData.textTheme.bodyText1,
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
