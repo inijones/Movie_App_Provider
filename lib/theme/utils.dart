@@ -50,22 +50,22 @@ ThemeData _buildDarkTheme() {
     textTheme: TextTheme(
       headline5: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 24,
       ),
       bodyText2: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 18,
       ),
       bodyText1: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 16,
       ),
       caption: GoogleFonts.openSans(
         fontWeight: FontWeight.normal,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 14,
       ),
     ),
@@ -86,22 +86,22 @@ ThemeData _buildAmoledTheme() {
     textTheme: TextTheme(
       headline5: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 24,
       ),
       bodyText2: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 18,
       ),
       bodyText1: GoogleFonts.openSans(
         fontWeight: FontWeight.bold,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 16,
       ),
       caption: GoogleFonts.openSans(
         fontWeight: FontWeight.normal,
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 14,
       ),
     ),

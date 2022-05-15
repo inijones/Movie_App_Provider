@@ -4,7 +4,6 @@ import 'utils.dart';
 
 enum ThemeStateEnum { light, dark, amoled }
 
-
 // This class is used to store and switch Themes state
 class ThemeState extends ChangeNotifier {
   SharedPreferences? _sharedPreferences;

@@ -57,13 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      // Drawer Wiget 
+      // Drawer Wiget
       drawer: Drawer(
         child: SettingsPage(),
       ),
-      body: Container(
-
-      ),
+      body: Container(),
     );
   }
 }
