@@ -116,8 +116,8 @@ class _SearchMovieWidgetState extends State<SearchMovieWidget> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 24.0),
                               child: Divider(
-                                  color:
-                                      widget.themeData!.colorScheme.secondary),
+                                color: widget.themeData!.colorScheme.secondary,
+                              ),
                             )
                           ],
                         ),
