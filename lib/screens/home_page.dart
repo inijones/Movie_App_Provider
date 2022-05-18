@@ -3,6 +3,7 @@ import 'package:movie_app_provider/api/endpoints.dart';
 import 'package:movie_app_provider/models/functions.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
+import 'package:movie_app_provider/screens/search_widget.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
 import 'package:movie_app_provider/widget/discover_movies.dart';
 import 'package:movie_app_provider/widget/scrolling_movies.dart';
@@ -45,9 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             onPressed: () async {
-              // final Movie? result = await showSearch(context: state.themeData, delegate: Movie)
+              final Movie? result = await showSearch<Movie?>(
+                context: context,
+                delegate: MovieSearch(
+                  themeData: state.themeData,
+                  genre: _genres,
+                ),
+              );
+              if (result != null) {}
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             color: state.themeData.colorScheme.secondary,
           ),
         ],
@@ -78,6 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
               title: 'Now Playing',
               api: Endpoints.nowPlayingMovieUrl(1),
             ),
+            ScrollingMovies(
+                themeData: state.themeData,
+                title: 'Upcoming',
+                api: Endpoints.upcomingMoviesUrl(1),
+                genre: _genres),
             ScrollingMovies(
               themeData: state.themeData,
               genre: _genres,

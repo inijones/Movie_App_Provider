@@ -9,7 +9,7 @@ class MovieSearch extends SearchDelegate<Movie?> {
   final ThemeData? themeData;
   final List<Genres>? genre;
 
-  MovieSearch(this.themeData, this.genre);
+  MovieSearch({this.themeData, this.genre});
 
   @override
   ThemeData appBarTheme(BuildContext context) {
