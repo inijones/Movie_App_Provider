@@ -6,8 +6,8 @@ class Endpoints {
         '/discover/movie'
         '?api_key=$TMDB_API_KEY'
         '&language=en-US'
-        '&sort_by=popularity'
-        '.desc&include_adult=false'
+        '&sort_by=popularity.desc'
+        '&include_adult=false'
         '&include_video=false'
         '&page=$page';
   }

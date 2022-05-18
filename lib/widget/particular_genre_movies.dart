@@ -82,7 +82,7 @@ class _ParticularGenreMoviesState extends State<ParticularGenreMovies> {
                                       child: Row(
                                         children: [
                                           Text(
-                                            movieList![index].voteAverage!,
+                                            '${movieList![index].voteAverage!}',
                                             style: widget
                                                 .themeData.textTheme.bodyText1,
                                           ),
@@ -108,8 +108,8 @@ class _ParticularGenreMoviesState extends State<ParticularGenreMovies> {
                                       'w500/' +
                                       movieList![index].posterPath!),
                                   fit: BoxFit.cover,
-                                  placeholder:
-                                      const AssetImage('assets/images/loading.gif'),
+                                  placeholder: const AssetImage(
+                                      'assets/images/loading.gif'),
                                 ),
                               ),
                             ),

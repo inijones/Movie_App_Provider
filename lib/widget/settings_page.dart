@@ -91,6 +91,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                     width: 50,
                                     height: 50,
                                     decoration: BoxDecoration(
+                                      color: state.themeData.primaryColor,
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                         width: 2,
@@ -130,6 +131,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                       });
                                     },
                                     child: Container(
+                                      //color: colors[index],
                                       width: 50,
                                       height: 50,
                                       child: state.themeData.primaryColor ==

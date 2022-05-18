@@ -30,7 +30,7 @@ class _ScrollingMoviesState extends State<ScrollingMovies> {
       (value) => {
         setState(
           () => moviesList = value,
-        ),
+        )
       },
     );
   }
@@ -49,49 +49,51 @@ class _ScrollingMoviesState extends State<ScrollingMovies> {
         ),
         SizedBox(
           width: double.infinity,
-          height: 200,
+          height: 350,
           child: moviesList == null
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(
+                  itemCount: moviesList!.length,
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
                         onTap: () {},
                         child: Hero(
-                            tag: '${moviesList![index].id}${widget.title}',
-                            child: SizedBox(
-                              width: 100,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: FadeInImage(
-                                        image: NetworkImage(
-                                            TMDB_BASE_IMAGE_URL +
-                                                'w500/' +
-                                                moviesList![index].posterPath!),
-                                        fit: BoxFit.cover,
-                                        placeholder: const AssetImage(
-                                            'assets/images/loading.gif'),
-                                      ),
+                          tag: '${moviesList![index].id}${widget.title}',
+                          child: SizedBox(
+                            width: 180,
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: FadeInImage(
+                                    image: NetworkImage(
+                                      TMDB_BASE_IMAGE_URL +
+                                          'w500/' +
+                                          moviesList![index].posterPath!,
                                     ),
+                                    fit: BoxFit.cover,
+                                    placeholder: const AssetImage(
+                                        'assets/images/loading.gif'),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      moviesList![index].title!,
-                                      style:
-                                          widget.themeData.textTheme.bodyText1,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    moviesList![index].title!,
+                                    style: widget.themeData.textTheme.bodySmall,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ],
-                              ),
-                            )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     );
                   },

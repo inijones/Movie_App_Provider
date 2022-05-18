@@ -26,10 +26,12 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
   void initState() {
     super.initState();
     fetchMovies(Endpoints.discoverMoviesUrl(1)).then((value) {
+      print(value);
       setState(
         () => movieList = value,
       );
     });
+    // callData();
   }
 
   @override
@@ -50,7 +52,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
         ),
         SizedBox(
           width: double.infinity,
-          height: 350,
+          height: 420,
           child: movieList == null
               ? const Center(
                   child: CircularProgressIndicator(),
@@ -59,22 +61,21 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                   itemCount: movieList!.length,
                   itemBuilder:
                       (BuildContext context, int index, pageViewIndex) {
-                    return Container(
-                      child: GestureDetector(
-                        onTap: () {
-                          // Navigate to MovieDetailPage
-                        },
-                        child: Hero(
-                          tag: '${movieList![index].id}discover',
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: FadeInImage(
-                              image: NetworkImage(TMDB_BASE_IMAGE_URL +
-                                  'w500/' +
-                                  movieList![index].posterPath!),
-                              fit: BoxFit.cover,
-                              placeholder: AssetImage('assets/image/loading.gif'),
-                            ),
+                    return GestureDetector(
+                      onTap: () {
+                        // Navigate to MovieDetailPage
+                      },
+                      child: Hero(
+                        tag: '${movieList![index].id}discover',
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: FadeInImage(
+                            image: NetworkImage(TMDB_BASE_IMAGE_URL +
+                                'w400/' +
+                                movieList![index].posterPath!),
+                            fit: BoxFit.cover,
+                            placeholder:
+                                const AssetImage('assets/images/loading.gif'),
                           ),
                         ),
                       ),

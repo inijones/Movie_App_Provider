@@ -27,8 +27,8 @@ class _ScrollingArtistsState extends State<ScrollingArtists> {
   @override
   void initState() {
     super.initState();
-    fetchCredits(widget.api!)
-        .then((value) => {setState(() => credits = value)});
+    // fetchCredits(widget.api!)
+    //     .then((value) => {setState(() => credits = value)});
   }
 
   @override

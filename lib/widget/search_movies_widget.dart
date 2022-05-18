@@ -98,7 +98,7 @@ class _SearchMovieWidgetState extends State<SearchMovieWidget> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          moviesList![index].voteAverage!,
+                                          '${moviesList![index].voteAverage!}',
                                           style: widget
                                               .themeData!.textTheme.bodyText1,
                                         ),

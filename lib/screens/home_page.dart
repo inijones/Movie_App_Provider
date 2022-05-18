@@ -21,14 +21,6 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Genres> _genres = [];
 
   @override
-  void initState() {
-    super.initState();
-    fetchGenres().then((value) {
-      _genres = value.genre ?? [];
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     final state = Provider.of<ThemeState>(context);
 
@@ -73,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               themeData: state.themeData,
               genres: _genres,
             ),
+            const SizedBox(height: 20),
             ScrollingMovies(
               themeData: state.themeData,
               title: 'Top Rated',

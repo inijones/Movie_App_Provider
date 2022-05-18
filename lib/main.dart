@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
         title: 'Movie App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.blue, canvasColor: Colors.transparent),
+          primarySwatch: Colors.blue,
+          canvasColor: Colors.transparent,
+        ),
         home: const MyHomePage(),
       ),
     );
   }
 }
-
