@@ -43,31 +43,33 @@ class _GenreListState extends State<GenreList> {
       height: 50,
       child: Center(
         child: _genres == null
-            ? CircularProgressIndicator()
-            : ListView.builder(itemBuilder: (BuildContext context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: InkWell(
-                    onTap: () {
-                      // naviagate to GenreMovies
-                    },
-                    child: Chip(
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 1,
-                          style: BorderStyle.solid,
-                          color: widget.themeData.colorScheme.secondary,
+            ? const CircularProgressIndicator()
+            : ListView.builder(
+                itemBuilder: (BuildContext context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: InkWell(
+                      onTap: () {
+                        // naviagate to GenreMovies
+                      },
+                      child: Chip(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1,
+                            style: BorderStyle.solid,
+                            color: widget.themeData.colorScheme.secondary,
+                          ),
                         ),
+                        label: Text(
+                          _genres![index].name!,
+                          style: widget.themeData.textTheme.bodyText1,
+                        ),
+                        backgroundColor: Colors.transparent,
                       ),
-                      label: Text(
-                        _genres![index].name!,
-                        style: widget.themeData.textTheme.bodyText1,
-                      ),
-                      backgroundColor: Colors.transparent,
                     ),
-                  ),
-                );
-              }),
+                  );
+                },
+              ),
       ),
     );
   }

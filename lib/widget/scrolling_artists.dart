@@ -74,7 +74,7 @@ class _ScrollingArtistsState extends State<ScrollingArtists> {
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemCount: credits!.cast.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, index) {
