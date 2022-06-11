@@ -31,6 +31,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             children: [
               Stack(
                 children: [
+                  // Stacked Column serving as the backgroung Image
                   Column(
                     children: [
                       // Background Image
@@ -76,6 +77,94 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                       ),
                     ],
                   ),
+                  // Body Column
+                  Column(
+                    children: [
+                      AppBar(
+                        backgroundColor: Colors.transparent,
+                        elevation: 0,
+                        leading: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: widget.themeData.colorScheme.secondary,
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(16, 25, 16, 16),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    color: widget.themeData.primaryColor,
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 120.0),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text(
+                                                  widget.movie.title!,
+                                                  style: widget.themeData
+                                                      .textTheme.headline5,
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Row(
+                                                    children: <Widget>[
+                                                      Text(
+                                                        widget
+                                                            .movie.voteAverage!
+                                                            .toString(),
+                                                        style: widget
+                                                            .themeData
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      ),
+                                                      const Icon(
+                                                        Icons.star,
+                                                        color: Colors.green,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ],
