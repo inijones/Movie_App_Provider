@@ -3,6 +3,7 @@ import 'package:movie_app_provider/api/endpoints.dart';
 import 'package:movie_app_provider/models/functions.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
+import 'package:movie_app_provider/screens/movie_details.dart';
 import 'package:movie_app_provider/screens/search_widget.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
 import 'package:movie_app_provider/widget/discover_movies.dart';
@@ -53,7 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   genre: _genres,
                 ),
               );
-              if (result != null) {}
+              if (result != null) {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => MovieDetailPage(),
+                //   ),
+                // );
+              }
             },
             icon: const Icon(Icons.search),
             color: state.themeData.colorScheme.secondary,

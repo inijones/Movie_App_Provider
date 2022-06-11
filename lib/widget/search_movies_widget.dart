@@ -98,13 +98,24 @@ class _SearchMovieWidgetState extends State<SearchMovieWidget> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          '${moviesList![index].voteAverage!}',
+                                          moviesList![index].title!,
                                           style: widget
-                                              .themeData!.textTheme.bodyText1,
+                                              .themeData!.textTheme.bodyText2,
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
                                         ),
-                                        const Icon(
-                                          Icons.star,
-                                          color: Colors.green,
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '${moviesList![index].voteAverage!}',
+                                              style: widget.themeData!.textTheme
+                                                  .bodyText1,
+                                            ),
+                                            const Icon(
+                                              Icons.star,
+                                              color: Colors.green,
+                                            ),
+                                          ],
                                         )
                                       ],
                                     ),
