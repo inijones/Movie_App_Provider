@@ -47,8 +47,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             width: double.infinity,
                             height: double.infinity,
                             fit: BoxFit.cover,
-                            placeholder:
-                                AssetImage('assets/images/loading.gif'),
+                            placeholder: AssetImage(
+                              'assets/images/loading.gif',
+                            ),
                             image: NetworkImage(TMDB_BASE_IMAGE_URL +
                                 'original/' +
                                 widget.movie.backdropPath!),

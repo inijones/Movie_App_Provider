@@ -8,7 +8,7 @@ import 'package:movie_app_provider/screens/search_widget.dart';
 import 'package:movie_app_provider/theme/theme_state.dart';
 import 'package:movie_app_provider/widget/discover_movies.dart';
 import 'package:movie_app_provider/widget/scrolling_movies.dart';
-import 'package:movie_app_provider/widget/settings_page.dart';
+import 'package:movie_app_provider/screens/settings_page.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {

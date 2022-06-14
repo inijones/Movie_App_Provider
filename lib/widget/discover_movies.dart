@@ -5,6 +5,7 @@ import 'package:movie_app_provider/constant/api_constants.dart';
 import 'package:movie_app_provider/models/functions.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
+import 'package:movie_app_provider/screens/movie_details.dart';
 
 class DiscoverMovies extends StatefulWidget {
   final ThemeData themeData;
@@ -64,6 +65,16 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
                     return GestureDetector(
                       onTap: () {
                         // Navigate to MovieDetailPage
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailPage(
+                                movie: movieList![index],
+                                themeData: widget.themeData,
+                                genres: widget.genres,
+                                heroId: '${movieList![index].id}discover'),
+                          ),
+                        );
                       },
                       child: Hero(
                         tag: '${movieList![index].id}discover',
