@@ -1,6 +1,6 @@
 # movie_app_provider
 
-A Flutter Project made with Provider and TMDB APIs(https://themoviedb.org)
+A Flutter Project made with Provider State Management, MVC arhitecture and TMDB APIs(https://themoviedb.org)
 
 ## Getting Started
 
