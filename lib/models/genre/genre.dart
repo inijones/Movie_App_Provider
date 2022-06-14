@@ -5,7 +5,11 @@ part 'genre.g.dart';
 
 @JsonSerializable()
 class Genres {
+
+  @JsonKey(name: "id")
   final int? id;
+  
+  @JsonKey(name: "name")
   final String? name;
 
   Genres({this.id, this.name});

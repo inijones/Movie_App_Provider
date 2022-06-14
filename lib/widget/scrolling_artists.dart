@@ -6,14 +6,14 @@ import 'package:movie_app_provider/models/functions.dart';
 
 class ScrollingArtists extends StatefulWidget {
   final ThemeData? themeData;
-  final String? api, title, tapButtonTest;
+  final String? api, title, tapButtonText;
   final Function(Cast) onTap;
   const ScrollingArtists({
     Key? key,
     this.themeData,
     this.api,
     this.title,
-    this.tapButtonTest,
+    this.tapButtonText,
     required this.onTap,
   }) : super(key: key);
 
@@ -60,7 +60,7 @@ class _ScrollingArtistsState extends State<ScrollingArtists> {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      widget.tapButtonTest!,
+                      widget.tapButtonText!,
                       style: widget.themeData!.textTheme.caption,
                     ),
                   ),

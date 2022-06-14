@@ -10,7 +10,7 @@ class GenresList {
   GenresList(this.genre);
 
   factory GenresList.fromJson(Map<String, dynamic> json) =>
-      _$GenreListFromJson(json);
+      _$GenresListFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GenreListToJson(this);
+  Map<String, dynamic> toJson() => _$GenresListToJson(this);
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app_provider/api/endpoints.dart';
 import 'package:movie_app_provider/constant/api_constants.dart';
+import 'package:movie_app_provider/models/cast/cast.dart';
 import 'package:movie_app_provider/models/genre/genre.dart';
 import 'package:movie_app_provider/models/genre/genre_list.dart';
 import 'package:movie_app_provider/models/movie/movie.dart';
 import 'package:movie_app_provider/widget/genre_list.dart';
+import 'package:movie_app_provider/widget/scrolling_artists.dart';
 
 class MovieDetailPage extends StatefulWidget {
   final Movie movie;
@@ -152,7 +155,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                 ),
                                 Expanded(
                                   child: SingleChildScrollView(
-                                    physics: BouncingScrollPhysics(),
+                                    physics: const BouncingScrollPhysics(),
                                     child: Column(
                                       children: [
                                         widget.genres.isNotEmpty
@@ -176,7 +179,37 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                             ),
                                           ],
                                         ),
-                                        Padding(padding: const EdgeInsets.all(8.0))
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            widget.movie.overview!,
+                                            style: widget
+                                                .themeData.textTheme.caption,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0, bottom: 4.0),
+                                              child: Text(
+                                                'Release date : ${widget.movie.releaseDate}',
+                                                style: widget.themeData
+                                                    .textTheme.bodyText1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        ScrollingArtists(
+                                          api: Endpoints.getCreditsUrl(
+                                              widget.movie.id!),
+                                          title: 'Cast',
+                                          tapButtonText: 'See full cast & crew',
+                                          themeData: widget.themeData,
+                                          onTap: (Cast cast) {
+                                            modalBottomSheetMenu(cast);
+                                          },
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -194,6 +227,82 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           )
         ],
       ),
+    );
+  }
+
+  void modalBottomSheetMenu(Cast cast) {
+    showModalBottomSheet(
+      context: context,
+      builder: (builder) {
+        return Container(
+          color: Colors.transparent,
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Container(
+                  padding: const EdgeInsets.only(top: 54),
+                  decoration: BoxDecoration(
+                    color: widget.themeData.primaryColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                    ),
+                  ),
+                  child: Center(
+                    child: ListView(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                '${cast.name}',
+                                style: widget.themeData.textTheme.bodyText2,
+                              ),
+                              Text(
+                                'as',
+                                style: widget.themeData.textTheme.bodyText2,
+                              ),
+                              Text(
+                                '${cast.character}',
+                                style: widget.themeData.textTheme.bodyText2,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: widget.themeData.primaryColor,
+                        border: Border.all(
+                            color: widget.themeData.colorScheme.secondary,
+                            width: 3),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: (cast.profilePath == null
+                                    ? AssetImage('assets/images/na.jpg')
+                                    : NetworkImage(TMDB_BASE_IMAGE_URL +
+                                        'w500/' +
+                                        cast.profilePath!))
+                                as ImageProvider<Object>),
+                        shape: BoxShape.circle),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

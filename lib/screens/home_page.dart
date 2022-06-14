@@ -55,12 +55,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               );
               if (result != null) {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => MovieDetailPage(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MovieDetailPage(
+                      movie: result,
+                      themeData: state.themeData,
+                      genres: _genres,
+                      heroId: '${result.id}search',
+                    ),
+                  ),
+                );
               }
             },
             icon: const Icon(Icons.search),
